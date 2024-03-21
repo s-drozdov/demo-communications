@@ -14,7 +14,7 @@ class m240321_172007_create_device_categories_table extends Migration
     {
         $this->createTable('{{%device_categories}}', [
             'id' => $this->primaryKey(),
-            'code' => $this->string()->notNull(),
+            'code' => $this->string()->notNull()->unique(),
             'title' => $this->string()->notNull(),
         ]);
     }

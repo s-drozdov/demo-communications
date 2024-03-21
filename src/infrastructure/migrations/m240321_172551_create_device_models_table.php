@@ -17,6 +17,7 @@ class m240321_172551_create_device_models_table extends Migration
     {
         $this->createTable('{{%device_models}}', [
             'id' => $this->primaryKey(),
+            'title' => $this->string()->notNull()->unique(),
             'device_category_id' => $this->integer()->notNull(),
             'sim_slots_number' => $this->integer()->defaultValue(0),
             'has_wifi_adapter' => $this->boolean()->notNull()->defaultValue(false),

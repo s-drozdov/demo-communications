@@ -15,7 +15,7 @@ class m240321_171436_create_providers_table extends Migration
         $this->createTable('{{%providers}}', [
             'id' => $this->primaryKey(),
             'title' => $this->string()->notNull(),
-            'code' => $this->string()->notNull(),
+            'code' => $this->string()->notNull()->unique(),
         ]);
     }
 

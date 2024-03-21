@@ -32,14 +32,12 @@ MAKEFILE команды
 * **make stop** - сокращалка для docker compose stop
 * **make down** - сокращалка для docker compose down
 * **make build** - билд образа с пробросом UID и GID
-* **make docker-exec-composer-install** - запуск composer с хост машины
-* **make docker-exec-yii-migrate** - накатка миграций с хост машины
+* **make composer-install** - запуск composer с хост машины
+* **make yii-migrate** - накатка миграций с хост машины
 
 
 * **make create-env** - готовим оригинал .env с вводом пароля от БД
 * **make create-db-config** - готовим оригинал конфига db.php с заполнением из .env
-* **make composer-install** - запуск composer из контейнера
-* **make yii-migrate** - накатка миграций из контейнера
 
 
 ОСНОВНОЙ КОНЦЕПТ
@@ -54,3 +52,5 @@ MAKEFILE команды
 пользоваться услугами домашнего интернета. 
 
 У каждого устройства в зависимости от модели могут быть слоты сим/адаптеры Ethernet/Wifi.
+
+[comment]: <> (@TODO: приложить структуру данных)

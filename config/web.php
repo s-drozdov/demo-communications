@@ -8,7 +8,7 @@ use yii\web\JsonResponseFormatter;
 $common = require __DIR__ . '/common.php';
 
 return yii\helpers\ArrayHelper::merge($common, [
-    'id' => getenv('APP_NAME') . '-api',
+    'id' => 'demo-communications-api',
     'defaultRoute' => 'site/index',
     'components' => [
         'request' => [
