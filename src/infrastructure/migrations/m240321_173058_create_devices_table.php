@@ -19,7 +19,7 @@ class m240321_173058_create_devices_table extends Migration
         $this->createTable('{{%devices}}', [
             'id' => $this->primaryKey(),
             'device_model_id' => $this->integer()->notNull(),
-            'owner_id' => $this->integer(),
+            'consumer_id' => $this->integer(),
             'isOn' => $this->boolean()->notNull()->defaultValue(false),
         ]);
 
@@ -40,18 +40,18 @@ class m240321_173058_create_devices_table extends Migration
             'CASCADE'
         );
 
-        // creates index for column `owner_id`
+        // creates index for column `consumer_id`
         $this->createIndex(
-            '{{%idx-devices-owner_id}}',
+            '{{%idx-devices-consumer_id}}',
             '{{%devices}}',
-            'owner_id'
+            'consumer_id'
         );
 
         // add foreign key for table `{{%consumers}}`
         $this->addForeignKey(
-            '{{%fk-devices-owner_id}}',
+            '{{%fk-devices-consumer_id}}',
             '{{%devices}}',
-            'owner_id',
+            'consumer_id',
             '{{%consumers}}',
             'id',
             'CASCADE'
@@ -77,13 +77,13 @@ class m240321_173058_create_devices_table extends Migration
 
         // drops foreign key for table `{{%consumers}}`
         $this->dropForeignKey(
-            '{{%fk-devices-owner_id}}',
+            '{{%fk-devices-consumer_id}}',
             '{{%devices}}'
         );
 
-        // drops index for column `owner_id`
+        // drops index for column `consumer_id`
         $this->dropIndex(
-            '{{%idx-devices-owner_id}}',
+            '{{%idx-devices-consumer_id}}',
             '{{%devices}}'
         );
 

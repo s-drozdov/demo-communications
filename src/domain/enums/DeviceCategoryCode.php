@@ -8,5 +8,6 @@ enum DeviceCategoryCode: string
     case Laptop = 'laptop';
     case Tablet = 'tablet';
     case Desktop = 'desktop';
+    case Tv = 'tv';
     case Router = 'router';
 }

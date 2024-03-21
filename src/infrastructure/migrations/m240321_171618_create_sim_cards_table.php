@@ -20,7 +20,7 @@ class m240321_171618_create_sim_cards_table extends Migration
             'id' => $this->primaryKey(),
             'mobile_number' => $this->string()->notNull(),
             'provider_id' => $this->integer()->notNull(),
-            'owner_id' => $this->integer(),
+            'consumer_id' => $this->integer(),
         ]);
 
         // creates index for column `provider_id`
@@ -40,18 +40,18 @@ class m240321_171618_create_sim_cards_table extends Migration
             'CASCADE'
         );
 
-        // creates index for column `owner_id`
+        // creates index for column `consumer_id`
         $this->createIndex(
-            '{{%idx-sim_cards-owner_id}}',
+            '{{%idx-sim_cards-consumer_id}}',
             '{{%sim_cards}}',
-            'owner_id'
+            'consumer_id'
         );
 
         // add foreign key for table `{{%consumers}}`
         $this->addForeignKey(
-            '{{%fk-sim_cards-owner_id}}',
+            '{{%fk-sim_cards-consumer_id}}',
             '{{%sim_cards}}',
-            'owner_id',
+            'consumer_id',
             '{{%consumers}}',
             'id',
             'CASCADE'
@@ -77,13 +77,13 @@ class m240321_171618_create_sim_cards_table extends Migration
 
         // drops foreign key for table `{{%consumers}}`
         $this->dropForeignKey(
-            '{{%fk-sim_cards-owner_id}}',
+            '{{%fk-sim_cards-consumer_id}}',
             '{{%sim_cards}}'
         );
 
-        // drops index for column `owner_id`
+        // drops index for column `consumer_id`
         $this->dropIndex(
-            '{{%idx-sim_cards-owner_id}}',
+            '{{%idx-sim_cards-consumer_id}}',
             '{{%sim_cards}}'
         );
 

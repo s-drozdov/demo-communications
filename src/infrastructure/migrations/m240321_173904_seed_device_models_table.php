@@ -70,6 +70,13 @@ class m240321_173904_seed_device_models_table extends Migration
                 'has_wifi_adapter' => false,
                 'has_ethernet_adapter' => true,
             ],
+            [
+                'title' => 'LG UHD 4K TV 50 Inch',
+                'device_category_id' => $this->categories[DeviceCategoryCode::Tv->value],
+                'sim_slots_number' => 0,
+                'has_wifi_adapter' => true,
+                'has_ethernet_adapter' => true,
+            ],
         ];
     }
 

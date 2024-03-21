@@ -28,6 +28,10 @@ class m240321_173849_seed_device_categories_table extends Migration
             'title' => 'PC',
         ],
         [
+            'code' => 'tv',
+            'title' => 'Смарт TV',
+        ],
+        [
             'code' => 'router',
             'title' => 'Роутер',
         ],
