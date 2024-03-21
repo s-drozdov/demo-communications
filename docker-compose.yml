@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+    app:
+        build:
+            context: ./docker/php-fpm
+            target: '${BUILD_TARGET}'
+            args:
+                APP_NAME: ${APP_NAME}
+                FPM_PORT: ${FPM_PORT}
+        container_name: ${APP_NAME}_app
+        volumes:
+            - .:/var/www/${APP_NAME}
+            - ./docker/php-fpm/php.ini:/usr/local/etc/php/php.ini
+        environment:
+            PHP_IDE_CONFIG: "serverName=${APP_NAME}"
+            TZ: '${TZ}'
+        extra_hosts:
+            - host.docker.internal:host-gateway
+        depends_on:
+            - postgres
+#        restart: always
+    nginx:
+        build:
+            context: ./docker/nginx
+            args:
+                APP_NAME: ${APP_NAME}
+                FPM_PORT: ${FPM_PORT}
+        container_name: ${APP_NAME}_nginx
+        hostname: ${APP_NAME}_nginx
+        volumes:
+            - .:/var/www/${APP_NAME}
+        ports:
+            - "8080:80"
+        depends_on:
+            - app
+#        restart: always
+    postgres:
+        image: postgres:15-alpine
+#        restart: always
+        container_name: ${APP_NAME}_pg
+        hostname: ${APP_NAME}_pg
+        environment:
+            POSTGRES_USER: ${DB_USERNAME}
+            POSTGRES_DB: ${DB_DATABASE}
+            POSTGRES_PASSWORD: ${DB_PASSWORD}
+        ports:
+            - "${DB_PORT}:${DB_PORT}"
+        volumes:
+            - demo_communications_db:/var/lib/postgresql/data
+        command:
+            - "postgres"
+            - "-c"
+            - "port=${DB_PORT}"
+
+volumes:
+    demo_communications_db:
+        name: 'demo_communications_db'
+        driver: local
+
+networks:
+    default:
+        name: drozdov-demo-net

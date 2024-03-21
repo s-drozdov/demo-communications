@@ -1,0 +1,14 @@
+<?php
+
+return [
+    'class' => 'yii\db\Connection',
+    'dsn' => 'pgsql:host=@APP_NAME@_pg;dbname=@DB_DATABASE@',
+    'username' => '@DB_USERNAME@',
+    'password' => '@DB_PASSWORD@',
+    'charset' => 'utf8',
+
+    // Schema cache options (for production environment)
+    //'enableSchemaCache' => true,
+    //'schemaCacheDuration' => 60,
+    //'schemaCache' => 'cache',
+];
