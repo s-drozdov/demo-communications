@@ -3,16 +3,16 @@
 use yii\db\Migration;
 
 /**
- * Handles the creation of table `{{%owners}}`.
+ * Handles the creation of table `{{%consumers}}`.
  */
-class m240321_143804_create_owners_table extends Migration
+class m240321_143804_create_consumers_table extends Migration
 {
     /**
      * {@inheritdoc}
      */
     public function safeUp()
     {
-        $this->createTable('{{%owners}}', [
+        $this->createTable('{{%consumers}}', [
             'id' => $this->primaryKey(),
             'full_name' => $this->string()->notNull(),
         ]);
@@ -23,6 +23,6 @@ class m240321_143804_create_owners_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('{{%owners}}');
+        $this->dropTable('{{%consumers}}');
     }
 }

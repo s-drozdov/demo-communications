@@ -87,7 +87,5 @@ class m240321_173904_seed_device_models_table extends Migration
      * {@inheritdoc}
      */
     public function safeDown()
-    {
-        $this->truncateTable(static::TABLE_NAME);
-    }
+    {}
 }

@@ -7,7 +7,7 @@ use yii\db\Migration;
  * Has foreign keys to the tables:
  *
  * - `{{%providers}}`
- * - `{{%owners}}`
+ * - `{{%consumers}}`
  */
 class m240321_171618_create_sim_cards_table extends Migration
 {
@@ -47,12 +47,12 @@ class m240321_171618_create_sim_cards_table extends Migration
             'owner_id'
         );
 
-        // add foreign key for table `{{%owners}}`
+        // add foreign key for table `{{%consumers}}`
         $this->addForeignKey(
             '{{%fk-sim_cards-owner_id}}',
             '{{%sim_cards}}',
             'owner_id',
-            '{{%owners}}',
+            '{{%consumers}}',
             'id',
             'CASCADE'
         );
@@ -75,7 +75,7 @@ class m240321_171618_create_sim_cards_table extends Migration
             '{{%sim_cards}}'
         );
 
-        // drops foreign key for table `{{%owners}}`
+        // drops foreign key for table `{{%consumers}}`
         $this->dropForeignKey(
             '{{%fk-sim_cards-owner_id}}',
             '{{%sim_cards}}'
