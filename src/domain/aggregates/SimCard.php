@@ -2,9 +2,9 @@
 
 namespace app\src\domain\aggregates;
 
-use app\src\domain\entities\Apartment as Root;
+use app\src\domain\entities\SimCard as Root;
 
-final class Apartment
+final class SimCard
 {
     public function __construct(
         public readonly Root $root,

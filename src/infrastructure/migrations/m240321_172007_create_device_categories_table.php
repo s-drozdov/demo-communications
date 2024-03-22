@@ -16,6 +16,7 @@ class m240321_172007_create_device_categories_table extends Migration
             'id' => $this->primaryKey(),
             'code' => $this->string()->notNull()->unique(),
             'title' => $this->string()->notNull(),
+            'is_network_hardware' => $this->boolean()->defaultValue(false),
         ]);
     }
 

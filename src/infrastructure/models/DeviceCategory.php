@@ -10,6 +10,7 @@ use Yii;
  * @property int $id
  * @property string $code
  * @property string $title
+ * @property bool|null $is_network_hardware
  *
  * @property DeviceModel[] $deviceModels
  */
@@ -30,6 +31,7 @@ class DeviceCategory extends \yii\db\ActiveRecord
     {
         return [
             [['code', 'title'], 'required'],
+            [['is_network_hardware'], 'boolean'],
             [['code', 'title'], 'string', 'max' => 255],
             [['code'], 'unique'],
         ];
@@ -44,6 +46,7 @@ class DeviceCategory extends \yii\db\ActiveRecord
             'id' => 'ID',
             'code' => 'Code',
             'title' => 'Title',
+            'is_network_hardware' => 'Is Network Hardware',
         ];
     }
 

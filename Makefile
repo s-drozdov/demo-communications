@@ -1,6 +1,5 @@
 SHELL := /bin/bash
 
-## FIXME !!! ADD DOCKER BUILD
 ## Setup project from docker app container
 .PHONY: docker-setup
 docker-setup: create-env \

@@ -34,6 +34,7 @@ class m240321_173849_seed_device_categories_table extends Migration
         [
             'code' => 'router',
             'title' => 'Роутер',
+            'is_network_hardware' => true,
         ],
     ];
 

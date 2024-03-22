@@ -18,7 +18,7 @@ class m240321_171618_create_sim_cards_table extends Migration
     {
         $this->createTable('{{%sim_cards}}', [
             'id' => $this->primaryKey(),
-            'mobile_number' => $this->string()->notNull(),
+            'mobile_number' => $this->string()->notNull()->unique(),
             'provider_id' => $this->integer()->notNull(),
             'consumer_id' => $this->integer(),
         ]);

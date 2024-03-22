@@ -10,6 +10,7 @@ final readonly class DeviceCategory
         public int $id,
         public DeviceCategoryCode $code,
         public string $title,
+        public bool $isNetworkHardware,
     )
     {}
 }
